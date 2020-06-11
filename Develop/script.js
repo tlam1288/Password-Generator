@@ -1,12 +1,16 @@
-// Assignment Code
+// Assignment Code. This links click to the button in HTML
 var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  // var password = generatePassword();
-  var passwordText = document.querySelector("#password");
+  var characterNum = prompt(
+    "How many characters would you like? Choose a number between 8 - 128"
+  );
 
-  passwordText.value = password;
+  // var password = generatePassword();
+  // var passwordText = document.querySelector("#password");
+
+  //passwordText.value = password;
 
   //Testing to see if code to generate string works below
   // var random =
