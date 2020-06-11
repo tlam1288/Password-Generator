@@ -15,6 +15,11 @@ function writePassword() {
     alert("Please choose a number between 8 - 128");
   }
 
+  var lowerCase = confirm("Do you want lowercase characters?");
+  var upperCase = confirm("Do you want uppercase characters?");
+  var numeric = confirm("Do you want numerics?");
+  var specialChar = confirm("Do you want special characters?");
+
   // var password = generatePassword();
   // var passwordText = document.querySelector("#password");
 
