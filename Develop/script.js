@@ -5,14 +5,18 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   //prompts how many characters you want
   var number = prompt(
-    "How many characters do you want your password to be? Must be at least 8"
+    "How many characters do you want your password to be? Must be at between 8 - 128"
   );
+
   //this makes sure number chosen in prompt is an integer
   var characterNum = Math.floor(number);
   //console.log(characterNum);
-  //verifies character count chosen is within range
+  //verifies character count chosen is within range and if a number is picked
   if (characterNum < 8 || characterNum > 128) {
     alert("Please choose a number between 8 - 128");
+    return false;
+  } else if (isNaN(number)) {
+    alert("Must a number");
     return false;
   }
 
@@ -27,7 +31,7 @@ function writePassword() {
   var upperCase = false;
   var numeric = false;
   var special = false;
-  var specialCharacters = ["!", "@", "#", "$", "%"];
+  var specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*"];
   var total = ""; //this holds the concatenated password strings
 
   //if true then lower case letters will be added. .replace changes numbers to x
@@ -62,7 +66,7 @@ function writePassword() {
 
   //if true then a special character will be added
   if (specialChoice === true) {
-    var special = specialCharacters[Math.floor(Math.random() * 5)];
+    var special = specialCharacters[Math.floor(Math.random() * 8)];
     var total = total + special;
     console.log(special);
   }
@@ -91,7 +95,7 @@ function writePassword() {
   // Math.random().toString(36).substring(2, 15) +
   // Math.random().toString(36).substring(2, 15).toUpperCase();
   //alert(random);
-}
+} // closes writePassword()
 
 // Add event listener to generate button
 generateBtn.addEventListener("click", writePassword);
