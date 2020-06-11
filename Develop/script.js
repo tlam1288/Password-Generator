@@ -5,7 +5,7 @@ var generateBtn = document.querySelector("#generate");
 function writePassword() {
   //prompts how many characters you want
   var number = prompt(
-    "How many characters would you like? Choose a number between 8 - 128"
+    "How many characters do you want your password to be? Must be at least 8"
   );
   //this makes sure number chosen in prompt is an integer
   var characterNum = Math.floor(number);
@@ -28,7 +28,7 @@ function writePassword() {
   var numeric = false;
   var special = false;
   var specialCharacters = ["!", "@", "#", "$", "%"];
-  var total = "";
+  var total = ""; //this holds the concatenated password strings
 
   //if true then lower case letters will be added
   if (lowerChoice === true) {
