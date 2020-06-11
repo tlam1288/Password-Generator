@@ -3,9 +3,17 @@ var generateBtn = document.querySelector("#generate");
 
 // Write password to the #password input
 function writePassword() {
-  var characterNum = prompt(
+  //prompts how many characters you want
+  var number = prompt(
     "How many characters would you like? Choose a number between 8 - 128"
   );
+  //this makes sure number chosen in prompt is an integer
+  var characterNum = Math.floor(number);
+  console.log(characterNum);
+  //verifies character count chosen is within range
+  if (characterNum < 8 || characterNum > 128) {
+    alert("Please choose a number between 8 - 128");
+  }
 
   // var password = generatePassword();
   // var passwordText = document.querySelector("#password");
