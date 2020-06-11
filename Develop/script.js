@@ -30,23 +30,32 @@ function writePassword() {
   var specialCharacters = ["!", "@", "#", "$", "%"];
   var total = ""; //this holds the concatenated password strings
 
-  //if true then lower case letters will be added
+  //if true then lower case letters will be added. .replace changes numbers to x
   if (lowerChoice === true) {
-    var lowerCase = Math.random().toString(36).substring(2, 15).toLowerCase();
+    var lowerCase = Math.random()
+      .toString(36)
+      .substring(2, 15)
+      .toLowerCase()
+      .replace(/[0-9]/g, "x");
+
     var total = total + lowerCase;
     console.log(lowerCase);
   }
 
-  //if true then upper case letters will be added
+  //if true then upper case letters will be added. .replace changes numbers to A
   if (upperChoice === true) {
-    var upperCase = Math.random().toString(36).substring(2, 15).toUpperCase();
+    var upperCase = Math.random()
+      .toString(36)
+      .substring(2, 15)
+      .toUpperCase()
+      .replace(/[0-9]/g, "A");
     var total = total + upperCase;
     console.log(upperCase);
   }
 
   //if true then numbers will be added
   if (numericChoice === true) {
-    var numeric = Math.floor(Math.random() * 10);
+    var numeric = Math.random().toString(10).substring(2, 15);
     var total = total + numeric;
     console.log(numeric);
   }
