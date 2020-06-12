@@ -31,70 +31,37 @@ function writePassword() {
   var upperCase = false;
   var numeric = false;
   var special = false;
-  var specialCharacters = ["!", "@", "#", "$", "%", "^", "&", "*"];
-  var total = ""; //this holds the concatenated password strings
 
-  //if true then lower case letters will be added. .replace changes numbers to x
+  var totalString = "";
+  var lowerString = "abcdefghijklmnopqrstuvwxyz";
+  var upperString = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";
+  var numberString = "1234567890";
+  var specialString = "!@#$%^&*";
+
+  //if user chooses ok, the string values of variables above will get added to totalString
   if (lowerChoice === true) {
-    var lowerCase = Math.random()
-      .toString(36)
-      .substring(2, 15)
-      .toLowerCase()
-      .replace(/[0-9]/g, "x");
-
-    var total = total + lowerCase;
-    console.log(lowerCase);
+    var totalString = totalString + lowerString;
   }
-
-  //if true then upper case letters will be added. .replace changes numbers to A
   if (upperChoice === true) {
-    var upperCase = Math.random()
-      .toString(36)
-      .substring(2, 15)
-      .toUpperCase()
-      .replace(/[0-9]/g, "A");
-    var total = total + upperCase;
-    console.log(upperCase);
+    var totalString = totalString + upperString;
   }
-
-  //if true then numbers will be added
   if (numericChoice === true) {
-    var numeric = Math.random().toString(10).substring(2, 15);
-    var total = total + numeric;
-    console.log(numeric);
+    var totalString = totalString + numberString;
   }
-
-  //if true then a special character will be added
   if (specialChoice === true) {
-    var special = specialCharacters[Math.floor(Math.random() * 8)];
-    var total = total + special;
-    console.log(special);
+    var totalString = totalString + specialString;
   }
 
-  //var password = lowerCase + upperCase + numeric + special;
-  // getPassword();
-  // console.log(password);
-
-  // function getPassword(characterNum) {
-  //   var total = lowerCase + upperCase + numeric + special;
-  //   var password = total.substring(2, characterNum);
-  //   console.log(password);
-  // }
-
-  //getPassword();
-
-  // var password = generatePassword();
+  // this for loop loops thorugh the totalString the number of times the user chose
+  var password = "";
+  for (i = 1; i <= characterNum; i++) {
+    var character = Math.floor(Math.random() * totalString.length + 1);
+    password += totalString.charAt(character);
+  }
 
   //prints password into text box
   var passwordText = document.querySelector("#password");
-  passwordText.value = total;
-
-  //Testing to see if code to generate string works below
-  //var random =
-  // Math.random().toString(36).substring(2, 15) +
-  // Math.random().toString(36).substring(2, 15) +
-  // Math.random().toString(36).substring(2, 15).toUpperCase();
-  //alert(random);
+  passwordText.value = password;
 } // closes writePassword()
 
 // Add event listener to generate button
