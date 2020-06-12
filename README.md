@@ -16,8 +16,6 @@ Using conditionals to:
 
 Creating for loop to randomly select characters from a string to display
 
-Adding event listeners to start a function upon a click
-
 ## Challenges I faced during this project
 
 This was one of the hardest applications that I have made thus far in my coding journey. However this was also the first project that pseudo-coded before hand which was a game changer. I was able to map out and plan the steps of the code. This outline definately saved a lot of time guessing what to do next. My biggest challenge for this project was finding a way to sort out the types of characters that the user selected. Figuring out that adding certain character types into totalString by using a conditional was a breakthrough for me. That allowed me to be able to include or exclude a character type if needed.
